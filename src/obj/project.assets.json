@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net9.0": {
       "Avalonia/11.3.4": {
         "type": "package",
         "dependencies": {
@@ -1407,7 +1407,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net9.0": [
       "Avalonia >= 11.3.4",
       "Avalonia.Desktop >= 11.3.4",
       "Avalonia.Diagnostics >= 11.3.4",
@@ -1416,29 +1416,29 @@
     ]
   },
   "packageFolders": {
-    "/home/milok/.nuget/packages/": {}
+    "/home/dorian/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/milok/C--workshop-template/src/TodoListApp.csproj",
+      "projectUniqueName": "/home/dorian/Documents/Epitech/HUB/Discovery/cr-ez-une-application-de-bureau-en-c-doriansenecot/src/TodoListApp.csproj",
       "projectName": "TodoListApp",
-      "projectPath": "/home/milok/C--workshop-template/src/TodoListApp.csproj",
-      "packagesPath": "/home/milok/.nuget/packages/",
-      "outputPath": "/home/milok/C--workshop-template/src/obj/",
+      "projectPath": "/home/dorian/Documents/Epitech/HUB/Discovery/cr-ez-une-application-de-bureau-en-c-doriansenecot/src/TodoListApp.csproj",
+      "packagesPath": "/home/dorian/.nuget/packages/",
+      "outputPath": "/home/dorian/Documents/Epitech/HUB/Discovery/cr-ez-une-application-de-bureau-en-c-doriansenecot/src/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/milok/.nuget/NuGet/NuGet.Config"
+        "/home/dorian/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net9.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {}
         }
       },
@@ -1452,11 +1452,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "dependencies": {
           "Avalonia": {
             "target": "Package",
@@ -1490,22 +1490,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[8.0.20, 8.0.20]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/dorian/.dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

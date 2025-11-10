@@ -1,5 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="using:TodoListApp.Models"
         x:Class="TodoListApp.MainWindow"
         Title="To-Do List"
         Width="400" Height="500">
@@ -12,8 +13,18 @@
             <Button x:Name="AddButton" Content="Add" Margin="10,0,0,0" Width="80"/>
         </StackPanel>
 
-        <ListBox x:Name="TaskList" Height="300"/>
+        <ListBox x:Name="TaskList" Height="300">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="models:TaskItem">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsCompleted}" Margin="0,0,10,0"/>
+                        <TextBlock Text="{Binding Title}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Button x:Name="DeleteButton" Content="Delete selected" Margin="0,10,0,0"/>
+        <Button x:Name="SaveButton" Content="Save to JSON" Margin="0,10,0,0"/>
     </StackPanel>
 </Window>
