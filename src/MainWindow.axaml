@@ -8,6 +8,18 @@
     <StackPanel Margin="20">
         <TextBlock Text="My To-Do List" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
+        <!-- Filters -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Spacing="8">
+            <ComboBox x:Name="QuickFilterCombo" Width="140" SelectedIndex="0">
+                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="Today"/>
+                <ComboBoxItem Content="This week"/>
+                <ComboBoxItem Content="Overdue"/>
+            </ComboBox>
+            <ComboBox x:Name="TagFilterCombo" Width="140" PlaceholderText="Filter by tag"/>
+            <TextBlock x:Name="SaveStatus" VerticalAlignment="Center" Margin="8,0,0,0" FontSize="12"/>
+        </StackPanel>
+
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Spacing="8">
             <TextBox x:Name="TaskInput" Width="180" Watermark="Enter a task..."/>
             <TextBox x:Name="TagsInput" Width="120" Watermark="Tags (comma-separated)"/>
@@ -23,7 +35,13 @@
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
                                 <CheckBox IsChecked="{Binding IsCompleted}"/>
                                 <!-- Inline editable title -->
-                                <TextBox Text="{Binding Title, Mode=TwoWay}" Width="220"/>
+                                <TextBox Text="{Binding Title, Mode=TwoWay}" 
+                                         Width="220" 
+                                         IsReadOnly="True" 
+                                         BorderThickness="0"
+                                         Background="Transparent"
+                                         DoubleTapped="OnTitleDoubleTapped"
+                                         LostFocus="OnTitleLostFocus"/>
                                 <DatePicker SelectedDate="{Binding DueDate, Mode=TwoWay}" Width="140"/>
                             </StackPanel>
 
