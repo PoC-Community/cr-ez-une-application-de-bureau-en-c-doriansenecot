@@ -8,23 +8,48 @@
     <StackPanel Margin="20">
         <TextBlock Text="My To-Do List" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBox x:Name="TaskInput" Width="250" Watermark="Enter a task..."/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Spacing="8">
+            <TextBox x:Name="TaskInput" Width="180" Watermark="Enter a task..."/>
+            <TextBox x:Name="TagsInput" Width="120" Watermark="Tags (comma-separated)"/>
+            <DatePicker x:Name="DueDatePicker" Width="120"/>
             <Button x:Name="AddButton" Content="Add" Margin="10,0,0,0" Width="80"/>
         </StackPanel>
 
-        <ListBox x:Name="TaskList" Height="300">
+        <ListBox x:Name="TaskList" Height="320">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="models:TaskItem">
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox IsChecked="{Binding IsCompleted}" Margin="0,0,10,0"/>
-                        <TextBlock Text="{Binding Title}" VerticalAlignment="Center"/>
-                    </StackPanel>
+                    <Border Padding="6" Margin="0,0,0,6" Background="#f3f3f3" CornerRadius="4">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                                <CheckBox IsChecked="{Binding IsCompleted}"/>
+                                <!-- Inline editable title -->
+                                <TextBox Text="{Binding Title, Mode=TwoWay}" Width="220"/>
+                                <DatePicker SelectedDate="{Binding DueDate, Mode=TwoWay}" Width="140"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Spacing="6" Margin="28,6,0,0">
+                                <!-- Tags display -->
+                                <ItemsControl ItemsSource="{Binding Tags}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#e0e0e0" Padding="4" CornerRadius="4">
+                                                <TextBlock Text="{Binding}" FontSize="12"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button x:Name="DeleteButton" Content="Delete selected" Margin="0,10,0,0"/>
-        <Button x:Name="SaveButton" Content="Save to JSON" Margin="0,10,0,0"/>
+        <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,10,0,0">
+            <Button x:Name="DeleteButton" Content="Delete selected"/>
+            <Button x:Name="CompleteAllButton" Content="Complete All"/>
+            <Button x:Name="ClearCompletedButton" Content="Clear Completed"/>
+            <Button x:Name="SaveButton" Content="Save to JSON"/>
+        </StackPanel>
     </StackPanel>
 </Window>
